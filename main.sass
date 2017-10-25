@@ -1,0 +1,352 @@
+$breakpoint: 768px
+$background-main: #313234
+$background-phone: #7a7c7b
+$background-stop: #252726
+$max-width: 1200px
+$half-width: 600px
+
+@mixin size($width, $height)
+	width: $width
+	height: $height
+
+
+@mixin my-clear($x: both)
+	content: ""
+	display: table
+	clear: $x
+	
+@mixin display-color($display, $color)
+	display: $display
+	color: $color
+
+body
+	@include my-clear()
+	margin: auto
+	font-family: 'Open Sans', sans-serif
+
+
+*
+	box-sizing: border-box
+
+
+.container
+	width: 100%
+	max-width: $max-width
+	
+
+[class*="col-m"]
+	text-align: center
+	float: left
+ 
+.clear-both
+	content: ""
+	display: table
+	clear: both
+
+section
+	.container 
+		margin: 60px auto
+		text-align: center
+
+.row
+	&:after
+		@include my-clear()
+	
+	&:before
+		@include my-clear()
+ 
+
+
+.layer 
+	position: relative
+
+
+nav 
+	background: $background-main
+	height: 50px
+	margin: auto
+	
+	img
+		padding: 10px 0
+	
+	ul 
+		margin: 0
+		padding: 0
+		float: right
+		list-style-type: none
+		li 
+			display: inline-block
+			a 
+				text-decoration: none
+				line-height: 50px
+				padding: 0 20px
+				@include display-color(block, #fff)
+				text-transform: uppercase
+				&:hover
+					background: #424443
+
+  
+
+.hero 
+	background-image: url(img/jumbotron-photo.jpg)
+	height: 50vh
+	margin: auto
+
+
+.slogan 
+	background: rgba(49, 50, 52, 0.5)
+	float: right
+	max-width: $half-width
+	@include size(600px, 150px)
+	margin-top: 150px
+	h1 
+		margin-left: 50px
+ 
+
+
+.icon 
+	p
+		font-size: 12px
+
+
+.sent
+	h1 
+		text-transform: uppercase
+		margin-top: 60px
+
+	p
+		margin-bottom: 60px
+
+
+
+.gal 
+	img 
+		@include size(100%, 200px)
+		display: block
+		object-fit: cover
+
+	i 
+		position: absolute
+		line-height: 200px
+		@include display-color(block, #fff)
+		transform: scaleY(0)
+		font-size: 25px
+
+	.col-m-2
+		&:hover i 
+			transform: scaleY(1)
+			z-index: 1
+			img 
+				filter: brightness(50%)
+				z-index: -1
+
+
+.fa-camera-retro 
+	right: 30%
+	
+	
+.fa-search 
+	left: 30%
+
+
+.crew
+	img 
+		@include size(200px, 200px)
+		border-radius: 50%
+		display: block
+		object-fit: cover
+		margin: auto
+		&:hover 
+			filter: brightness(50%)
+
+
+
+.phone 
+	background: $background-phone
+	margin: auto
+	max-width: $max-width
+	img
+		@include size(100%, 100px)
+		display: block
+
+	i 
+		position: absolute
+		line-height: 100px
+		@include display-color(block, #fff)
+		transform: scaleY(0)
+		font-size: 15px
+
+	h1 
+		text-transform: uppercase
+		text-align: center
+
+
+.fa-camera-retro 
+	right: 30%
+
+.fa-search 
+	left: 30%
+
+
+.small-icon
+	&:hover i 
+		transform: scaleY(1)
+		z-index: 1
+		img
+			opacity: 0.5
+			z-index: -1
+
+.num 
+	font-family: 'Montserrat', sans-serif
+	font-weight: bold
+	font-size: 30px
+	margin-bottom: 40px
+	p 
+		color: #3498db
+		font-size: 20px
+		text-transform: uppercase
+
+
+
+footer 
+	text-align: center
+	background: $background-main
+	color: #fff
+	margin: auto
+	p 
+		word-break: break-all
+		margin: 0 5%
+
+
+.box 
+	@include size(40px, 40px)
+	background: #3498db
+	@include display-color(inline-block, #fff)
+	padding-top: 5px
+	margin: 10px
+
+
+.stop 
+	@include display-color(flex, #fff)
+	@include size(100%, 50px)
+	background: $background-stop
+	Justify-content: center
+	align-items: center
+
+
+hr 
+	display: inline-block
+	width: 100px
+
+
+
+@media (max-width: $breakpoint)
+	.col-s-1
+		width: 8.33%
+	.col-s-2
+		width: 16.66%
+	.col-s-3
+		width: 25%
+	.col-s-4
+		width: 33.33%
+	.col-s-5
+		width: 41.66%
+	.col-s-6
+		width: 50%
+	.col-s-7
+		width: 58.33%
+	.col-s-8
+		width: 66.66%
+	.col-s-9
+		width: 75%
+	.col-s-10
+		width: 83.33%
+	.col-s-11
+		width: 91.66%
+	.col-s-12
+		width: 100%
+
+	nav	
+		height: auto
+		img 
+			display: block
+			margin: auto
+		ul 
+			display: block
+			float: none
+			text-align: center
+			li 
+				display: block
+				width: 100%
+				a 
+					padding: 20px 200px
+					
+		
+	.gal
+		i 
+			transform: scaleY(1)	
+		.col-m-2
+			&:hover img 
+				filter: none
+			
+	
+	.crew
+		.img
+			&:hover 
+				filter: none
+		
+	
+	.phone
+		img 
+			@include size(100%, 200px)
+			&:hover 
+				opacity: 1
+		i 
+			transform: scaleY(1)
+			line-height: 200px
+		
+		.col-s-12 
+			margin: auto
+		
+	
+	footer 
+		p 
+			margin: 0 5%
+		
+
+
+
+@media (min-width: $breakpoint)
+	.col-m-1 
+		width: 8.33%
+	.col-m-2 
+		width: 16.66%
+	.col-m-3
+		width: 25%
+	.col-m-4
+		width: 33.33%
+	.col-m-5
+		width: 41.66%
+	.col-m-6 
+		width: 50%
+	.col-m-7
+		width: 58.33%
+	.col-m-8
+		width: 66.66%
+	.col-m-9 
+		width: 75%
+	.col-m-10
+		width: 83.33%
+	.col-m-11 
+		width: 91.66%
+	.col-m-12
+		width: 100%
+
+
+	.col-offset-1 
+		margin-left: 8.33%
+ 
+ 
+ 
+ 
+ 
